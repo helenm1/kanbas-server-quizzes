@@ -11,7 +11,8 @@ import "dotenv/config";
 // mongoose.connect("mongodb://127.0.0.1:27017/kanbas");
 const CONNECTION_STRING =
   process.env.DB_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kanbas";
-mongoose.connect(CONNECTION_STRING);
+const DB_NAME = process.env.DB_NAME;
+mongoose.connect(CONNECTION_STRING, { dbName: DB_NAME });
 const app = express();
 console.log(process.env.FRONTEND_URL);
 const sessionOptions = {
@@ -28,15 +29,15 @@ if (process.env.NODE_ENV !== "development") {
   };
 }
 
-app.use(session(sessionOptions));
-app.use(express.json());
-
 app.use(
   cors({
     credentials: true,
     origin: process.env.FRONTEND_URL,
   })
 );
+
+app.use(session(sessionOptions));
+app.use(express.json());
 const port = process.env.PORT || 4000;
 ModuleRoutes(app);
 CourseRoutes(app);
