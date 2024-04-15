@@ -1,5 +1,5 @@
-import express from 'express'
-import Hello from "./Hello.js"
+import express from "express";
+import Hello from "./Hello.js";
 import Lab5 from "./Lab5.js";
 import CourseRoutes from "./Kanbas/courses/routes.js";
 import ModuleRoutes from "./Kanbas/modules/routes.js";
@@ -15,4 +15,4 @@ CourseRoutes(app);
 Lab5(app);
 Hello(app);
 UserRoutes(app);
-app.listen(process.env.PORT || 4000);
+app.listen(4000);
