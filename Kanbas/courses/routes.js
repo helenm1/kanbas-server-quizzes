@@ -1,4 +1,4 @@
-// import db from "../Database/index.js";
+import db from "../Database/index.js";
 import * as dao from "./dao.js";
 
 export default function CourseRoutes(app) {
@@ -9,19 +9,20 @@ export default function CourseRoutes(app) {
     res.json(courses);
   };
   const findCourseById = async (req, res) => {
-    const id = req.params.id;
+    const id = req.params._id;
     // const course = db.courses.find((course) => course._id === id);
     const course = await dao.findCourseById(id);
     res.json(course);
   };
-  const createCourse = (req, res) => {
-    const course = { ...req.body, _id: Date.now().toString() };
-    db.courses.push(course);
-    res.json(db.courses);
+  const createCourse = async (req, res) => {
+    // const course = { ...req.body, _id: Date.now().toString() };
+    // db.courses.push(course);
+    const course = await dao.createCourse(req.body);
+    res.json(course);
   };
   const updateCourse = (req, res) => {};
   const deleteCourse = (req, res) => {
-    const id = req.params.id;
+    const id = req.params._id;
     db.courses = db.courses.filter((course) => course._id !== id);
     res.json(db.courses);
   };
