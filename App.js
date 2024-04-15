@@ -29,6 +29,7 @@ if (process.env.NODE_ENV !== "development") {
 }
 
 app.use(session(sessionOptions));
+app.use(express.json());
 
 app.use(
   cors({
@@ -36,8 +37,6 @@ app.use(
     origin: process.env.FRONTEND_URL,
   })
 );
-
-app.use(express.json());
 const port = process.env.PORT || 4000;
 ModuleRoutes(app);
 CourseRoutes(app);
