@@ -23,7 +23,7 @@ export default function ModuleRoutes(app) {
   };
 
   const deleteModule = async (req, res) => {
-    const status = await dao.deleteModule(req.params._id);
+    const status = await dao.deleteModule(req.params.id);
     res.json(status);
   };
 
