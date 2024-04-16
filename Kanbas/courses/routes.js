@@ -20,11 +20,20 @@ export default function CourseRoutes(app) {
     const course = await dao.createCourse(req.body);
     res.json(course);
   };
-  const updateCourse = (req, res) => {};
-  const deleteCourse = (req, res) => {
-    const id = req.params._id;
-    db.courses = db.courses.filter((course) => course._id !== id);
-    res.json(db.courses);
+  const updateCourse = async (req, res) => {
+    const { id } = req.params;
+    console.log("hi", req.body);
+    const status = await dao.updateCourse(id, req.body);
+    // currentCourse = await dao.findCourseById(id);
+    res.json(status);
+  };
+  const deleteCourse = async (req, res) => {
+    const status = await dao.deleteCourse(req.params.id);
+    res.json(status);
+
+    // const id = req.params._id;
+    // db.courses = db.courses.filter((course) => course._id !== id);
+    // res.json(db.courses);
   };
 
   app.get("/api/courses", findAllCourses);
