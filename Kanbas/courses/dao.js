@@ -7,6 +7,8 @@ export const findCoursesByDepartment = (department) =>
 export const findCoursesByInstructor = (instructor) =>
   courseModel.find({ instructor });
 export const createCourse = (course) => courseModel.create(course);
-export const updateCourse = (id, course) =>
-  courseModel.updateOne({ _id: id }, { $set: course });
+export const updateCourse = (id, course) => {
+  console.log("course  id", id);
+  return courseModel.updateOne({ _id: id }, { $set: course });
+};
 export const deleteCourse = (id) => courseModel.deleteOne({ _id: id });
