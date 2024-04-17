@@ -3,7 +3,6 @@ import * as dao from "./dao.js";
 
 export default function ModuleRoutes(app) {
   const findAllModules = async (req, res) => {
-    // console.log(req.params.id);
     const modules = await dao.findAllModules();
 
     res.json(modules);
@@ -11,7 +10,6 @@ export default function ModuleRoutes(app) {
 
   const findModuleById = async (req, res) => {
     const id = req.params._id;
-    // const course = db.courses.find((course) => course._id === id);
     const module = await dao.findModuleById(id);
     res.json(module);
   };
