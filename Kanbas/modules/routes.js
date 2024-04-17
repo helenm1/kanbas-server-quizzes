@@ -3,7 +3,7 @@ import * as dao from "./dao.js";
 
 export default function ModuleRoutes(app) {
   const findAllModules = async (req, res) => {
-    console.log(req.params._id);
+    // console.log(req.params.id);
     const modules = await dao.findAllModules();
 
     res.json(modules);
@@ -18,7 +18,6 @@ export default function ModuleRoutes(app) {
 
   const createModule = async (req, res) => {
     const module = await dao.createModule(req.body);
-    console.log(module);
     res.json(module);
   };
 
@@ -28,14 +27,16 @@ export default function ModuleRoutes(app) {
   };
 
   const updateModule = async (req, res) => {
-    const { moduleId } = req.params;
+    console.log("id in update module", req.params.id);
+    console.log("body", req.body);
+    const { moduleId } = req.params.id;
     const status = await dao.updateModule(moduleId, req.body);
     // currentModule = await dao.findModuleById(moduleId);
     res.json(status);
   };
   app.get("/api/courses/:id/modules", findAllModules);
   app.get("/api/courses/:id/modules/:id", findModuleById);
-  app.post("/api/courses/:id/modules/", createModule);
+  app.post("/api/courses/:id/modules", createModule);
   app.put("/api/courses/:id/modules/:id", updateModule);
   app.delete("/api/courses/:id/modules/:id", deleteModule);
 }
