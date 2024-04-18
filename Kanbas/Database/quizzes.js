@@ -24,7 +24,7 @@ export default [
     dueDate: "2023-05-15",
     points: 30,
     numQuestions: 10,
-    course: "661c9d8464652fca4e9b61b8",
+    course: "66203a8d3de0c148e6a201b1",
   },
   {
     _id: "Q4",
@@ -33,7 +33,7 @@ export default [
     dueDate: "2023-05-15",
     points: 30,
     numQuestions: 10,
-    course: "661c9d8464652fca4e9b61b8",
+    course: "66203a8d3de0c148e6a201b1",
   },
   {
     _id: "Q5",
@@ -42,16 +42,16 @@ export default [
     dueDate: "2023-05-15",
     points: 30,
     numQuestions: 10,
-    course: "661c9d8464652fca4e9b61b8",
+    course: "66203a8d3de0c148e6a201b1",
   },
   {
     _id: "Q6",
-    name: " Q4 - NODE",
+    name: "Q4 - NODE",
     availability: "Closed",
     dueDate: "2023-05-15",
     points: 30,
     numQuestions: 10,
-    course: "661c9d8464652fca4e9b61b8",
+    course: "66203a8d3de0c148e6a201b1",
   },
   {
     _id: "Q7",
@@ -60,7 +60,7 @@ export default [
     dueDate: "2023-05-15",
     points: 30,
     numQuestions: 10,
-    course: "661c9d8464652fca4e9b61b8",
+    course: "66203a8d3de0c148e6a201b1",
   },
   {
     _id: "Q8",
@@ -69,6 +69,6 @@ export default [
     dueDate: "2023-05-15",
     points: 30,
     numQuestions: 10,
-    course: "661c9d8464652fca4e9b61b8",
+    course: "66203a8d3de0c148e6a201b1",
   },
 ];
