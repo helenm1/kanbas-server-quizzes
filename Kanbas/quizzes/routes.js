@@ -9,8 +9,11 @@ export default function QuizRoutes(app) {
   };
 
   const findQuizById = async (req, res) => {
-    const id = req.params.id;
+    console.log("req.params", req.params);
+    const id = req.params.quizId;
+    console.log("id in routes", id);
     const quiz = await dao.findQuizById(id);
+    console.log("quiz in routes", quiz);
     res.json(quiz);
   };
 
@@ -30,7 +33,7 @@ export default function QuizRoutes(app) {
     res.json(status);
   };
   app.get("/api/courses/:id/quizzes", findAllQuizzes);
-  app.get("/api/courses/:id/quizzes/:id", findQuizById);
+  app.get("/api/courses/:courseId/quizzes/:quizId", findQuizById);
   app.post("/api/courses/:id/quizzes", createQuiz);
   app.put("/api/courses/:courseId/quizzes/:quizId", updateQuiz);
   app.delete("/api/courses/:id/quizzes/:id", deleteQuiz);
