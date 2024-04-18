@@ -9,7 +9,7 @@ export default function QuizRoutes(app) {
   };
 
   const findQuizById = async (req, res) => {
-    const id = req.params._id;
+    const id = req.params.id;
     const quiz = await dao.findQuizById(id);
     res.json(quiz);
   };
