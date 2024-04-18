@@ -7,7 +7,7 @@ export default [
     dueDate: "2023-05-15",
     points: 30,
     numQuestions: 10,
-    course: "661c9d8464652fca4e9b61b8",
+    course: "66203a8d3de0c148e6a201b1",
   },
   {
     _id: "Q2",
@@ -17,7 +17,7 @@ export default [
     dueDate: "2023-05-15",
     points: 30,
     numQuestions: 10,
-    course: "661c9d8464652fca4e9b61b8",
+    course: "66203a8d3de0c148e6a201b1",
   },
   {
     _id: "Q3",
