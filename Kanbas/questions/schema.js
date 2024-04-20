@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 const questionSchema = mongoose.Schema(
   {
-    id: String,
     quizId: { type: String, required: true },
     questionText: { type: String, required: true },
     points: { type: Number, required: true },
