@@ -9,7 +9,7 @@ const questionSchema = mongoose.Schema(
       enum: ["TRUE_FALSE", "MULTIPLE_CHOICE", "FILL_IN"],
       default: "MULTIPLE_CHOICE",
     },
-    tfAnswer: { type: Boolean, required: questionType === "TRUE_FALSE" },
+    tfAnswer: { type: Boolean, default: false },
     mcAnswers: {
       type: [
         {
@@ -17,11 +17,11 @@ const questionSchema = mongoose.Schema(
           correct: Boolean,
         },
       ],
-      required: questionType === "MULTIPLE_CHOICE",
+      default: [],
     },
     fillInAnswers: {
       type: [String],
-      required: questionType === "FILL_IN",
+      default: [],
     },
   },
 
