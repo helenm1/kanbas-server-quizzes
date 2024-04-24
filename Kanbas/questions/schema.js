@@ -1,28 +1,15 @@
 import mongoose from "mongoose";
 const questionSchema = mongoose.Schema(
   {
-    quizId: { type: String, required: true },
-    questionText: { type: String, required: true },
-    points: { type: Number, required: true },
-    questionType: {
+    title: { type: String, required: true },
+    type: {
       type: String,
-      enum: ["TRUE_FALSE", "MULTIPLE_CHOICE", "FILL_IN"],
-      default: "MULTIPLE_CHOICE",
+      enum: ["Multiple Choice", "Fill in the Blank", "True/False"],
     },
-    tfAnswer: { type: Boolean, required: questionType === "TRUE_FALSE" },
-    mcAnswers: {
-      type: [
-        {
-          answer: String,
-          correct: Boolean,
-        },
-      ],
-      required: questionType === "MULTIPLE_CHOICE",
-    },
-    fillInAnswers: {
-      type: [String],
-      required: questionType === "FILL_IN",
-    },
+    points: Number,
+    description: String,
+    options: [String],
+    answers: [String],
   },
 
   { collection: "questions" }
