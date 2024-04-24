@@ -10,3 +10,5 @@ export const updateQuiz = (id, quiz) => {
   return quizzesModel.updateOne({ _id: id }, { $set: quiz });
 };
 export const deleteQuiz = (id) => quizzesModel.deleteOne({ _id: id });
+export const publishQuiz = (id) =>
+  quizzesModel.updateOne({ _id: id }, { published: true });
