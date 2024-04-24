@@ -20,10 +20,15 @@ export default function QuizRoutes(app) {
   const createQuiz = async (req, res) => {
     const quiz = await dao.createQuiz(req.body);
     res.json(quiz);
+    console.log("quiz in createquiz", quiz);
   };
 
   const deleteQuiz = async (req, res) => {
-    const status = await dao.deleteModule(req.params.id);
+    const { id } = req.params;
+    console.log("reqbody in deletequiz", req.params);
+    console.log("id in deletequiz", id);
+
+    const status = await dao.deleteQuiz(id);
     res.json(status);
   };
 
@@ -39,10 +44,19 @@ export default function QuizRoutes(app) {
     res.json(status);
   };
 
+  const unpublishQuiz = async (req, res) => {
+    const { courseId, quizId } = req.params;
+    const status = await dao.unpublishQuiz(quizId);
+    console.log("status in unpublish", status);
+    // console.log("quiz in unpublish", quiz);
+    res.json(status);
+  };
+
   app.get("/api/courses/:id/quizzes", findAllQuizzes);
   app.get("/api/courses/:courseId/quizzes/:quizId", findQuizById);
   app.post("/api/courses/:id/quizzes", createQuiz);
   app.put("/api/courses/:courseId/quizzes/:quizId", updateQuiz);
   app.put("/api/courses/:courseId/quizzes/:quizId/publish", publishQuiz);
+  app.put("/api/courses/:courseId/quizzes/:quizId/unpublish", unpublishQuiz);
   app.delete("/api/courses/:id/quizzes/:id", deleteQuiz);
 }
