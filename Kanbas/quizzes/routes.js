@@ -24,7 +24,11 @@ export default function QuizRoutes(app) {
   };
 
   const deleteQuiz = async (req, res) => {
-    const status = await dao.deleteModule(req.params.id);
+    const { id } = req.params;
+    console.log("reqbody in deletequiz", req.params);
+    console.log("id in deletequiz", id);
+
+    const status = await dao.deleteQuiz(id);
     res.json(status);
   };
 
