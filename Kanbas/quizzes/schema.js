@@ -34,11 +34,11 @@ const quizzesSchema = mongoose.Schema(
     lockQuestionsAfterAnswering: { type: Boolean, default: false },
     published: { type: Boolean, default: false },
     dueDate: { type: Date, required: true },
-    avaliableDate: { type: Date, required: true },
+    availableDate: { type: Date, required: true },
     untilDate: { type: Date, required: true },
     points: { type: Number, default: 0 },
     numQuestions: { type: Number, default: 0 },
-    courseId: { type: String, required: true },
+    course: { type: String, required: true },
     questions: [questionSchema],
   },
   { collection: "quizzes" }
