@@ -12,3 +12,5 @@ export const updateQuiz = (id, quiz) => {
 export const deleteQuiz = (id) => quizzesModel.deleteOne({ _id: id });
 export const publishQuiz = (id) =>
   quizzesModel.updateOne({ _id: id }, { published: true });
+export const unpublishQuiz = (id) =>
+  quizzesModel.updateOne({ _id: id }, { published: false });
