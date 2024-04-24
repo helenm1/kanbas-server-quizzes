@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import questionSchema from "../questions/schema.js";
 const quizzesSchema = mongoose.Schema(
   {
     id: String,
@@ -38,6 +39,7 @@ const quizzesSchema = mongoose.Schema(
     points: { type: Number, default: 0 },
     numQuestions: { type: Number, default: 0 },
     courseId: { type: String, required: true },
+    questions: [questionSchema],
   },
   { collection: "quizzes" }
 );
